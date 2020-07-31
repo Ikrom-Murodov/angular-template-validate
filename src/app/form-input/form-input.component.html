@@ -1,0 +1,16 @@
+<div [formGroup]="formValidationService.getFormGroup" class="form-group">
+  <div [formGroupName]="data.groupName">
+    <label [for]="data.id">{{ data.labelText }}</label>
+    <input
+      [type]="data.type"
+      [class]="data.className"
+      [id]="data.id"
+      [formControlName]="data.controlName"
+    />
+    <app-form-error-handing
+      [inputControl]="
+        formValidationService.getFormControl(data.groupName, data.controlName)
+      "
+    ></app-form-error-handing>
+  </div>
+</div>

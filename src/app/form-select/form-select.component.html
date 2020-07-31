@@ -1,0 +1,25 @@
+<div [formGroup]="formValidationService.getFormGroup" class="form-group">
+  <div [formGroupName]="data.groupName">
+    <label [for]="data.id">{{ data.labelText }}</label>
+    <select
+      [formControlName]="data.controlName"
+      [class]="data.className"
+      [id]="data.id"
+    >
+      <option *ngFor="let option of data.options" [value]="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+
+    <app-form-error-handing
+      [inputControl]="
+        formValidationService.getFormControl(data.groupName, data.controlName)
+      "
+    ></app-form-error-handing>
+  </div>
+</div>
+
+<app-form-input
+  *ngFor="let inputData of data.input"
+  [data]="inputData"
+></app-form-input>

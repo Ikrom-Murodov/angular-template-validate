@@ -1,0 +1,20 @@
+<div *ngIf="errors && touched" class="validation">
+  <small *ngIf="errors.required">
+    Данное поле не может быть пустым
+  </small>
+
+  <small *ngIf="errors.email">
+    Введите правелний адрес электронный почты
+  </small>
+
+  <small *ngIf="errors.minlength">
+    Длина должна быть не менее
+    <strong>{{ errors.minlength.requiredLength }}</strong
+    >. Сейчас количество символов
+    <strong>{{ errors.minlength.actualLength }}</strong>
+  </small>
+
+  <small *ngIf="errors.passwordMustMatch">
+    Пароли не совподают
+  </small>
+</div>

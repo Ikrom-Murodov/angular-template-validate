@@ -1,0 +1,14 @@
+<form [formGroup]="formValidationService.getFormGroup" (ngSubmit)="onSubmit()">
+  <app-form-input
+    *ngFor="let inputData of formData.registration.inputs"
+    [data]="inputData"
+  ></app-form-input>
+
+  <button
+    [disabled]="!formValidationService.getFormGroup.valid"
+    type="submit"
+    class="btn btn-success"
+  >
+    Отправить данные формы
+  </button>
+</form>
